@@ -1,0 +1,7 @@
+<template>
+    <div>Add Task(Child Component)</div>
+    
+    <lightning-input type="text" label="Enter Task" value={inputTask} required="true" onchange={handleInputChange}></lightning-input>
+
+    <lightning-button variant="Success" label="Add Task" onclick={handleTaskSubmit}></lightning-button>
+</template>

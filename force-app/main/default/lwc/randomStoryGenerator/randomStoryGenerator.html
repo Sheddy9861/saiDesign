@@ -1,0 +1,18 @@
+<template>
+    <lightning-card>
+        <div class="slds-var-m-around_medium slds-clearfix">
+            <h2 class="slds-text-heading_small slds-m-bottom_small">
+                Random Story Generator
+            </h2>
+            <lightning-input type="text" label="Enter Custom Name" value={customerName}
+                onchange={handleInputChange}></lightning-input>
+            <lightning-radio-group name="radioGroup" label="Country" options={options} value={value}
+                type="radio" onchange={onOptionChange}></lightning-radio-group>
+            <button class="slds-button slds-button_success slds-float_right slds-var-m-around_small"
+                onclick={handleOnClick}>Generate Random Story</button>
+        </div>  
+        <h3 class="slds-var-m-left_small">
+            {story}
+        </h3>
+    </lightning-card>
+</template>

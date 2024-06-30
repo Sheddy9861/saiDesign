@@ -1,0 +1,24 @@
+<template>
+    <lightning-card>
+        <div class="slds-var-m-around_medium slds-clearfix">
+            <h2 class="slds-text-heading_small slds-m-bottom_small">
+                Input Checker
+            </h2>
+            <lightning-input type="number" label="Enter Some number" required value={numberValue} onchange={handleInputChange}></lightning-input>
+                <button class="slds-button slds-button_success slds-float_right slds-var-m-around_small" onclick={handleOnclick}>Save</button>
+                <button class="slds-button slds-button_destructive slds-float_right slds-var-m-around_small" onclick={handleReset}>Reset</button>
+        </div>
+        <h3 class="slds-var-m-left_small">
+            Result: {outputValue}
+        </h3>
+    </lightning-card>
+    <lightning-card>
+        <div class="slds-var-m-around_medium slds-clearfix">
+            <h4 class="slds-text-heading_small slds-m-bottom_small">
+                Two Way Data Binding
+            </h4>
+            <h5>Your Name is {name} and you live in {address.City}</h5>
+            <lightning-input type="text" label="Enter Your City." onkeyup={handleCityInputChange}></lightning-input>
+        </div>
+    </lightning-card>
+</template>

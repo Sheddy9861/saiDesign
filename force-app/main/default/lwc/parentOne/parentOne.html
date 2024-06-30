@@ -1,0 +1,14 @@
+<template>
+    <lightning-card title="Child To Parent Communication" variant="narrow" icon-name="standard:events">
+
+        <div class="slds-p-around-small">
+            <div class="slds-text-heading_large">To Do List(Parent)</div>
+            <ul class="slds-has-dividers_around_space">
+                <template for:each={taskList} for:item="task">
+                    <li class="slds-item" key={task}>{task}</li>
+                </template>
+            </ul>
+        </div>
+        <c-child-one onaddtask={handleAddTask}></c-child-one>
+    </lightning-card>
+</template>

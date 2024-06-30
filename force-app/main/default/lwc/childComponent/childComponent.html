@@ -1,0 +1,8 @@
+<template>
+    <template for:each={userDetail} for:item="user">
+        <div class="card" key={user.name}>
+            <p>{user.name}</p>
+            <p>{user.company}</p>
+        </div>
+    </template>
+</template>
