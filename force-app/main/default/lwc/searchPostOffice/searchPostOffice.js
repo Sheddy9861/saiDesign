@@ -1,27 +1,30 @@
 import { LightningElement,track } from 'lwc';
-import getPostOfficesDetails from '@salesforce/apex/GetPostOffices.getPostOfficesDetails';
+import postOfficeSearch from '@salesforce/apex/PostalAPIController.postOfficeSearch';
 const columns = [
-    { label: 'Name', fieldName: 'Name' },
-    { label: 'Description', fieldName: 'Description'},
-    { label: 'BranchType', fieldName: 'BranchType' },
-    { label: 'DeliveryStatus', fieldName: 'DeliveryStatus'},
-    { label: 'Circle', fieldName: 'Circle'},
-    { label: 'District', fieldName: 'District'},
-    { label: 'Division', fieldName: 'Division'},
-    { label: 'Region', fieldName: 'Region'},
-    { label: 'Block', fieldName: 'Block'},
-    { label: 'State', fieldName: 'State'},
-    { label: 'Country', fieldName: 'Country'},
-    { label: 'Pincode', fieldName: 'Pincode',type: 'number'}
-    
+    { label: 'Name', fieldName: 'name' },
+    { label: 'Branch Type', fieldName : 'branchType'}
 ];
 
 export default class SearchPostOffice extends LightningElement {
     @track data = [];
     @track columns = columns;
-    handleOnclick(){
-        getPostOfficesDetails({}).then((response)=>{
-            this.data = response;
-        })
+    
+    @track pincode='';
+    handleInputChange(event){
+        this.pincode = event.target.value; 
     }
+        doSearch(){
+            console.log('Inside Onlick');
+            postOfficeSearch({pincode:this.pincode})
+            .then(result=>{
+                this.data = result;
+                console.log('DATA::'+this.data);
+            })
+            .catch(error=>{
+                this.data = [];
+            });
+        }
+    
+    
+    
 }
